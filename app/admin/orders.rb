@@ -15,4 +15,17 @@ ActiveAdmin.register Order do
   #   permitted
   # end
   
+  show do
+    attributes_table do
+      row :user
+      row :customer_address do |obj|
+          obj.user.address
+      end
+      row :order_date
+      row :amount
+      row :product_name do |obj|
+        obj.order_products.map{|it| it.product.name }
+      end
+    end
+  end
 end

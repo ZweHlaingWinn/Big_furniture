@@ -16,7 +16,7 @@ class Order < ApplicationRecord
     end
   
     def checkout!
-      self.checked_out_at = Time.now
+      self.order_date = Time.now
       self.save
     end
   
@@ -31,11 +31,8 @@ class Order < ApplicationRecord
     end
 
     def state
-      checked_out_at.nil? ? IN_PROGRESS : COMPLETE
+      order_date.nil? ? IN_PROGRESS : COMPLETE
     end
   
-    def display_name
-      ActionController::Base.helpers.number_to_currency(total_price) +
-          " - Order ##{id} (#{user.username})"
-    end
+    
 end

@@ -20,10 +20,12 @@ class CartController < ApplicationController
   end
 
   def checkout
-      @cart.checkout!
-      session.delete(:cart_id)
-      redirect_to '/'
+    @cart.checkout!
+    session.delete(:cart_id)
+    flash[:notice] = "Thank you for your purchase! We will ship it shortly!"
+    redirect_to "/"
   end
+
 
 
   protected
