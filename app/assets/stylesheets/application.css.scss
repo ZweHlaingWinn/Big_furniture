@@ -16,8 +16,17 @@
 
 
  @import "bootstrap";
+ @import "font-awesome-sprockets";
+@import "font-awesome";
 
 
  path:hover{
     fill:red;
+  }
+
+  .no-underline{
+    text-decoration: none !important;
+  }
+  .fa-circle{
+    font-size: 30px;
   }

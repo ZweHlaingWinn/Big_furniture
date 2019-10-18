@@ -1,24 +1,37 @@
 
-<div class="container ">
-<div class="row ">
-<% @products.each do |product| %> 
-  <div class="col-md-4 pt-4 mb-4">
-  <%= link_to product_path(product), :action => 'go', class:"no-underline" do %>
-    <div class="card card1 showcase">
-    <div class=" text-center pt-2"><%= image_tag (product.image), class: "product"%></div>
-<div class="card-body">
-  <h5 class="card-title card-title1 text-center">
-  <%= product.name %>
-  </h5>
+
+<div class="container-fluid mr-3">
+    <div class="row ">
+        <% @products.each do |product| %> 
+          
+            <div class="col-md-3">
+                <%= link_to product_path(product), :action => 'go', class:"no-underline" do %>
+                  <div class="card align-items-center">
+                  <div class="view overlay">
+                  <div class=" text-center pt-2"><%= image_tag (product.image), class: "product card-img-top"%></div>
+                    <div class="mask rgba-white-slight"></div>
+                  </div>
+                  <div class="card-body text-center">                  
+                    <h5 class="grey-text"><%= product.category%></h5>  
+                  <h5>
+                    <strong>
+                    <i class="fas fa-circle" style="color: <%= product.color %>"></i>
+                      <span class="dark-grey-text"><%= product.name%>
+                     
+                      </span>
+                    </strong>
+                  </h5>
+                  <h4 class="font-weight-bold blue-text">
+                    <strong>$ <%= product.price%></strong>
+                  </h4>
+                </div>
+                  </div>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+</div>
 
 
-</div>
-  
-  </div>
-<% end %>
-</div>
-<% end %>
 
-</div>
-</div>
 

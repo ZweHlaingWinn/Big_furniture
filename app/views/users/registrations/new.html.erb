@@ -1,29 +1,67 @@
-<h2>Sign up</h2>
+<div class="container pt-4">
+<div class="row">
+<div class="offset-md-3 col-md-6 offset-md-3">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="card">
+
+    <h5 class="card-header info-color white-text text-center py-4">
+        <strong>Sign Up</strong>
+    </h5>
+
+    <!--Card content-->
+    <div class="card-body px-lg-5 pt-0">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name),class: "text-center", style:"color: #2bbbad ! !;") do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+ 
+  <div class="md-form mt-3">
+        <%= f.text_field :name, class:"form-control", id:"materialContactFormName"%>
+        <label for="materialContactFormName">Name</label>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="md-form">
+  <label for="materialContactFormPhone">Phone</label>
+  <%= f.number_field :phone, class:"form-control",id: "materialContactFormPhone"%>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+ 
+  <div class="md-form">
+  <label for="materialContactFormEmail">Email</label>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control", id:"materialContactFormEmail"%>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="md-form">
+  <label for="materialContactFormPassword" placeholder="At least 6 characters">Password</label>
+
+   
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control", id:"materialContactFormPassword"%>
   </div>
+
+  <div class="md-form">
+  <label for="materialContactFormPasswordConfirmed">Password Confirmed</label>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",class: "form-control", id:"materialContactFormPasswordConfirmed" %>
+  </div>
+
+  <div class="md-form">
+  <label for="materialContactFormAddress">Address</label>
+    <%= f.text_area :address, id:"materialContactFormAddress", class: "form-control md-textarea" %>
+  </div>
+
+  
+  <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Send</button>
+
 <% end %>
 
-<%= render "users/shared/links" %>
+
+
+
+</div>
+</div>
+
+
+
+</div>
+</div>
+</div>
+
+

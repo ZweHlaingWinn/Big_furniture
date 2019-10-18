@@ -1,34 +1,37 @@
 
+<div class="container">
+  <div class="row">
+      <div class="col-md-6 mt-5">
+          <%= image_tag @product.image, class: "product", size: 40*10 %>
+      </div>
+      <div class="col-md-5 mt-5 float-right">
+       <strong> Product Name: </strong> <%= @product.name %>
+        <br><br>
+    <strong>Price:</strong> <%= number_to_currency  @product.price %>  
+      
+        (<%= link_to "Add to Card", add_to_cart_path(@product.id) %>)<br><br>
+      <strong> Category Name: </strong> <%= @product.category %><br><br>
+      
+      <strong> Available Color : </strong><span><i class="fas fa-circle" style="color: <%=@product.color%>"></i></span>
+      </div>
+  </div>
+</div>
 
 
-<%= image_tag @product.image, class: "product" %>
 
-<div id="product-description">
-  <% if @product.name %>
-    <%= simple_format @product.name %>
-  <% else %>
-    <p><em>No Description</em></p>
-  <% end %>
+  
 
-  <p>
-    <strong>Price:</strong>
-    <%= number_to_currency @product.price %> 
-    (<%= link_to "Add to Card", add_to_cart_path(@product.id) %>)
-  </p>
-
-  <p>
-    <strong>Size:</strong>
-    <%= @product.size %>
-  </p>
-
-  <p>
-    <strong>Color: </strong>
-    <span> <%= image_tag ("circle-solid.svg") %> </span>
-    
+  
+  <h5>
+    <strong>
+      
     </p>
 
-  <p> <%= link_to "Back to All Products", products_path %> </p>
 </div>
 
 <div style="clear:both;"></div>
 
+</div>
+<!--Card content-->
+
+</div>

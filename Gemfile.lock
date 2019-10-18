@@ -113,6 +113,8 @@ GEM
     erubi (1.9.0)
     execjs (2.7.0)
     ffi (1.11.1)
+    font-awesome-sass (5.11.2)
+      sassc (>= 1.11)
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.6.0)
@@ -291,6 +293,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  font-awesome-sass
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
@@ -311,4 +314,4 @@ RUBY VERSION
    ruby 2.6.3p62
 
 BUNDLED WITH
-   2.0.2
+   1.17.3

@@ -1,0 +1,30 @@
+<%- model_class = User -%>
+<div class="page-header">
+	<h3><%= @user.name %></h3>
+</div>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<td> <strong>Role</strong>  </td>
+					<td>:</td>
+					<td>  <%= @user.name %> </td>
+				</tr>
+			</thead>
+			<tr>
+				<td> <strong>Email</strong> </td>
+				<td>:</td>
+				<td> <%= @user.email %> </td>
+			</tr>
+			
+		</table>
+	</div>
+</div>
+<div class="form-actions">
+	<%= link_to "Edit",
+	edit_profile_info_path(current_user), :class => 'btn btn-primary' %>
+	<%= link_to "Change Password",
+	edit_profile_password_path(current_user), :class => 'btn btn-warning' %>
+</div>
+

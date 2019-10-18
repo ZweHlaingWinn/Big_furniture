@@ -37,10 +37,11 @@ gem 'devise'
 
 gem 'bootstrap', '~> 4.3.1'
 
-gem 'jquery-rails'
 
 gem "active_material", github: "vigetlabs/active_material"
 
+gem 'jquery-rails'
+gem 'font-awesome-sass'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
