@@ -10,6 +10,7 @@ class CartController < ApplicationController
       @cart.recalculate_price!
       flash[:notice] = "Item added to cart!"
       redirect_to '/cart'   
+    
   end
 
   def remove

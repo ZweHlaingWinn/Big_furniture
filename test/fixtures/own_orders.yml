@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  own_design_product: one
+  status: MyString
+  own_design_product_date: 2019-10-20 01:52:16
+
+two:
+  own_design_product: two
+  status: MyString
+  own_design_product_date: 2019-10-20 01:52:16

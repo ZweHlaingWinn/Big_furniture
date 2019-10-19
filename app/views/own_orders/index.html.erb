@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Own Orders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Own design product</th>
+      <th>Status</th>
+      <th>Own design product date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @own_orders.each do |own_order| %>
+      <tr>
+        <td><%= own_order.own_design_product %></td>
+        <td><%= own_order.status %></td>
+        <td><%= own_order.own_design_product_date %></td>
+        <td><%= link_to 'Show', own_order %></td>
+        <td><%= link_to 'Edit', edit_own_order_path(own_order) %></td>
+        <td><%= link_to 'Destroy', own_order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Own Order', new_own_order_path %>

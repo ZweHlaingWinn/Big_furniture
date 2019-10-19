@@ -15,7 +15,7 @@ ActiveAdmin.register Product do
   #   permitted
   # end
   
-  permit_params :name, :price, :color, :size, :images , :category_id, :image
+  permit_params :name, :price, :color, :size, :images , :category_id, :image, :description
 
   config.batch_actions = false
   config.filters = false
@@ -48,6 +48,7 @@ ActiveAdmin.register Product do
          f.inputs :price
          f.inputs :size
          f.inputs :color
+         f.inputs :description
          # f.input :images, as: :file, input_html: {multiple: true}
          f.input :image, as: :file
      end

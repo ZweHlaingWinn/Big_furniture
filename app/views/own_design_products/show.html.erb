@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @own_design_product.name %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @own_design_product.size %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @own_design_product.color %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @own_design_product.price %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @own_design_product.description %>
+</p>
+
+<p>
+  <strong>Targetdate:</strong>
+  <%= @own_design_product.targetdate %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @own_design_product.user %>
+</p>
+
+<%= link_to 'Edit', edit_own_design_product_path(@own_design_product) %> |
+<%= link_to 'Back', own_design_products_path %>

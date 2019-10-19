@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Own Design Products</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Size</th>
+      <th>Color</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Targetdate</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @own_design_products.each do |own_design_product| %>
+      <tr>
+        <td><%= own_design_product.name %></td>
+        <td><%= own_design_product.size %></td>
+        <td><%= own_design_product.color %></td>
+        <td><%= own_design_product.price %></td>
+        <td><%= own_design_product.description %></td>
+        <td><%= own_design_product.targetdate %></td>
+        <td><%= own_design_product.user %></td>
+        <td><%= link_to 'Show', own_design_product %></td>
+        <td><%= link_to 'Edit', edit_own_design_product_path(own_design_product) %></td>
+        <td><%= link_to 'Destroy', own_design_product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Own Design Product', new_own_design_product_path %>

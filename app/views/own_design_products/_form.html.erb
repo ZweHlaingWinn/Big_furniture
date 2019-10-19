@@ -1,0 +1,50 @@
+<%= form_with(model: own_design_product, local: true) do |form| %>
+  <% if own_design_product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(own_design_product.errors.count, "error") %> prohibited this own_design_product from being saved:</h2>
+
+      <ul>
+      <% own_design_product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :size %>
+    <%= form.text_field :size %>
+  </div>
+
+  <div class="field">
+    <%= form.label :color %>
+    <%= form.text_field :color %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :targetdate %>
+    <%= form.datetime_select :targetdate %>
+  
+
+    <%= form.hidden_field :user_id , :value => "#{current_user.id}"%>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

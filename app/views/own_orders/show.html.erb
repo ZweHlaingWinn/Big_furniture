@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Own design product:</strong>
+  <%= @own_order.own_design_product %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @own_order.status %>
+</p>
+
+<p>
+  <strong>Own design product date:</strong>
+  <%= @own_order.own_design_product_date %>
+</p>
+
+<%= link_to 'Edit', edit_own_order_path(@own_order) %> |
+<%= link_to 'Back', own_orders_path %>

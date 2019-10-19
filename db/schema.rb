@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_02_153851) do
+ActiveRecord::Schema.define(version: 2019_10_19_192216) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -97,6 +97,28 @@ ActiveRecord::Schema.define(version: 2019_10_02_153851) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "own_design_products", force: :cascade do |t|
+    t.string "name"
+    t.string "size"
+    t.string "color"
+    t.decimal "price"
+    t.text "description"
+    t.datetime "targetdate"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_own_design_products_on_user_id"
+  end
+
+  create_table "own_orders", force: :cascade do |t|
+    t.integer "own_design_product_id"
+    t.string "status"
+    t.datetime "own_design_product_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["own_design_product_id"], name: "index_own_orders_on_own_design_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.float "price"
@@ -105,6 +127,7 @@ ActiveRecord::Schema.define(version: 2019_10_02_153851) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id"
+    t.text "description"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 

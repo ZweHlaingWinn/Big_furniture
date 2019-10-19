@@ -4,15 +4,42 @@
   
         <%= form_tag checkout_path do |f| %>
           <%= link_to "< Continue Shopping", root_path, class:"float-left" %>
-          <%= submit_tag "Checkout Now!", class:"float-right btn btn-outline-primary", style:"display: inline" %>
-        <%end%>
+    
+          <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">
+          <i class="fa fa-lock" aria-hidden="true"></i> Checkout
+        </button>
+
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Order Confine</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+               Thank you for your purchase! We will ship it shortly!
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary waves-effect" data-dismiss="modal">Close</button>
+            <%= submit_tag "Checkout Now!", class:"btn btn-outline-primary waves-effect" %>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    
+          <%end%>
     </div>
+
+   <br><br>
     <div class="col-md-12 pt-3">
         <table class="table">
               <thead>
               <tr>
-                <th style="font-size:25px;">My Cart </th>
-                <th>Name</th>
+                <th style="font-size:25px;">My cart (<%= @cart.order_products.count %>) </th>
+                <th>Product Name</th>
                 <th>Size</th>
                 <th>Color</th>
                 <th>Total</th>
@@ -21,28 +48,59 @@
             </thead>
             <% for order_product in @cart.order_products %>
             <tr>
-            <td><%= image_tag (order_product.product.image), class:"cart-product", size: 10*10%></td>
+            <td><%= image_tag (order_product.product.image), class:"cart-product", size: 10*10, style:"border-style: solid;
+            border-width: 1px;
+            border-color: rgba(51, 51, 50, 0.19999999999999996);"%>
+          
             <td><%= order_product.product.name %></td>
             <td><%= order_product.product.size %></td>
             <td><span class="fas fa-circle" style="color: <%=order_product.product.color%>"></span></td>
             <td><%= number_to_currency order_product.price %></td>
-            <td><%= link_to "Remove", remove_from_cart_path(order_product), :method => :post %></td>
+            <td><%= link_to "", remove_from_cart_path(order_product), :method => :post, class:"fas fa-trash", style:"color:red" %></td>
+            </td>
             </tr>
             <%end%>
             <tr>
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
-              <td>Total:</td>
+              <td>SubTotal:</td>
               <td><%= number_to_currency @cart.amount  %></td>
+              <td></td>
+              
             <tr>
         </table>
-        <div class="mt-4 mb-4">
+    </div>
+    <div class="col-md-12 pt-5 mb-4">
+  
         <%= form_tag checkout_path do |f| %>
-          <%= submit_tag "Checkout Now!", class:"btn btn-outline-primary" %>
-        <%end%>
+    
+          <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModalCenter">
+          <i class="fa fa-lock" aria-hidden="true"></i> Checkout
+        </button>
+
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+               Thank you for your purchase! We will ship it shortly!
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary waves-effect" data-dismiss="modal">Close</button>
+            <%= submit_tag "Checkout Now!", class:"btn btn-outline-primary waves-effect" %>
+
+            </div>
+          </div>
         </div>
+      </div>
+    
+          <%end%>
     </div>
   </div>
 </div>

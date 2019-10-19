@@ -1,0 +1,32 @@
+<%= form_with(model: own_order, local: true) do |form| %>
+  <% if own_order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(own_order.errors.count, "error") %> prohibited this own_order from being saved:</h2>
+
+      <ul>
+      <% own_order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :own_design_product_id %>
+    <%= form.text_field :own_design_product_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :own_design_product_date %>
+    <%= form.datetime_select :own_design_product_date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
