@@ -24,5 +24,6 @@ ActiveAdmin.register OrderProduct do
   #     row :amount
   #   end
   # end
+  config.filters = false
 end
 

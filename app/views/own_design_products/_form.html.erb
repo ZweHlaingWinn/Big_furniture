@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :color %>
-    <%= form.text_field :color %>
+    <%= form.color_field :color %>
   </div>
 
   <div class="field">
@@ -39,6 +39,12 @@
   <div class="field">
     <%= form.label :targetdate %>
     <%= form.datetime_select :targetdate %>
+  </div>
+
+  <div class="field">
+        <%= form.label :own_design_product_images %>
+        <%= form.file_field :own_design_product_images, multiple: true %>
+  </div>
   
 
     <%= form.hidden_field :user_id , :value => "#{current_user.id}"%>

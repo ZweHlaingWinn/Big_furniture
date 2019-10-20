@@ -11,6 +11,7 @@ class CartController < ApplicationController
       flash[:notice] = "Item added to cart!"
       redirect_to '/cart'   
     
+    
   end
 
   def remove
@@ -21,10 +22,14 @@ class CartController < ApplicationController
   end
 
   def checkout
+    if @cart.order_products.present?
     @cart.checkout!
     session.delete(:cart_id)
     flash[:notice] = "Thank you for your purchase! We will ship it shortly!"
     redirect_to "/"
+    else 
+      redirect_to "/cart"
+    end
   end
 
 

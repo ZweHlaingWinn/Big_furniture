@@ -30,6 +30,12 @@
   <%= @own_design_product.targetdate %>
 </p>
 
+
+
+<%= @own_design_product.own_design_product_images.each do |images| %>
+  <%= image_tag (own_design_product.own_design_product_images[images]) %>
+  
+<%end%>
 <p>
   <strong>User:</strong>
   <%= @own_design_product.user %>
