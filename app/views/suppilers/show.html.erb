@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Suppiler name:</strong>
+  <%= @suppiler.suppiler_name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @suppiler.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @suppiler.email %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @suppiler.address %>
+</p>
+
+<%= link_to 'Edit', edit_suppiler_path(@suppiler) %> |
+<%= link_to 'Back', suppilers_path %>

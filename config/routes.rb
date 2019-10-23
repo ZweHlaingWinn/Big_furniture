@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :suppilers
   resources :own_orders
   resources :own_design_products
   get 'cart/show'

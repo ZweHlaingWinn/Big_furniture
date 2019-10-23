@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_19_192216) do
+ActiveRecord::Schema.define(version: 2019_10_23_172701) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -129,6 +129,46 @@ ActiveRecord::Schema.define(version: 2019_10_19_192216) do
     t.integer "category_id"
     t.text "description"
     t.index ["category_id"], name: "index_products_on_category_id"
+  end
+
+  create_table "purchase_details", force: :cascade do |t|
+    t.integer "category_id"
+    t.integer "purchase_id"
+    t.integer "raw_id"
+    t.integer "qty"
+    t.decimal "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "sale_price"
+    t.index ["category_id"], name: "index_purchase_details_on_category_id"
+    t.index ["purchase_id"], name: "index_purchase_details_on_purchase_id"
+    t.index ["raw_id"], name: "index_purchase_details_on_raw_id"
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.integer "suppiler_id"
+    t.string "purchaseproduct"
+    t.integer "qty"
+    t.decimal "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["suppiler_id"], name: "index_purchases_on_suppiler_id"
+  end
+
+  create_table "raws", force: :cascade do |t|
+    t.string "raw_name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "suppilers", force: :cascade do |t|
+    t.string "suppiler_name"
+    t.string "phone"
+    t.string "email"
+    t.text "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
