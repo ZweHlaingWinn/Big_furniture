@@ -18,15 +18,6 @@ ActiveAdmin.register PurchaseDetail do
     permit_params :category_id, :purchase_id, :raw_id, :qty, :amount, :sale_price
 
     config.batch_actions = false
-    index do
-
-      column :total_benefit do |amyat|
-        # amyat.purchase_id.sum{|sale_price| sale_price -= sale_price}
-        amyat.purchase.sum{ |issue| issues.amount - sale_price }
-        
-      end
-      column :amount
-      actions
-    end
+    menu false
 
 end

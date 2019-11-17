@@ -5,6 +5,7 @@ class Product < ApplicationRecord
     has_many :order_products
 
     def to_s
-        self.color
+        self.name
     end
+
 end

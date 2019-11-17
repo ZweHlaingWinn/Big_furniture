@@ -14,9 +14,15 @@ ActiveAdmin.register User do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+  permit_params :name, :email, :phone, :address
   
   config.batch_actions = false
   config.filters = false
+  
+
+  menu  label: 'Customer List'
+
+
   index do 
     column :id
     column :name

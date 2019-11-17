@@ -8,17 +8,6 @@
 		<table class="table table-striped">
 			<thead>
 			<tr>
-				<td> <strong>Role</strong>  </td>
-				<td>:</td>
-				<td>  <%= @user.role %> </td>
-			</tr>
-			</thead>
-			<tr>
-				<td> <strong>Email</strong> </td>
-				<td>:</td>
-				<td> <%= @user.email %> </td>
-			</tr>
-			<tr>
 				<td> <strong>Last Updated</strong> </td>
 				<td>:</td>
 				<td>
@@ -32,13 +21,30 @@
 					%>
 				</td>
 			</tr>
+			</thead>
+			<tr>
+				<td> <strong>Email</strong> </td>
+				<td>:</td>
+				<td> <%= @user.email %> </td>
+			</tr>
+			<tr>
+				<td> <strong>Phone Number</strong> </td>
+				<td>:</td>
+				<td> <%= @user.phone %> </td>
+			</tr>
+			<tr>
+				<td> <strong>Address</strong> </td>
+				<td>:</td>
+				<td> <%= @user.address %> </td>
+			</tr>
+			
 		</table>
 	</div>
 </div>
 
 <div class="form-actions">
 	<%= link_to t('.back', :default => t("helpers.links.back")),
-	users_path, :class => 'btn'  %>
+	products_path, :class => 'btn'  %>
 	<%= link_to t('.edit', :default => t("helpers.links.edit")),
 	edit_user_path(@user), :class => 'btn' %>
 	<%= link_to t('.destroy', :default => t("helpers.links.destroy")),

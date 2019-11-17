@@ -14,5 +14,28 @@ ActiveAdmin.register OwnDesignProduct do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+
+  config.batch_actions = false
+  config.filters = false
+
+
+  index do 
+    column :id
+    column :name
+    column :size
+    column :price
+    column :targetdate
+
+    column :status do |user|
+      if user.own_orders.present?
+      user.own_orders.map{|it| it.status }
+      else
+        text_node "Need Admin Status".html_safe
+      end
+    end
+
+  end
+
 end
+
+

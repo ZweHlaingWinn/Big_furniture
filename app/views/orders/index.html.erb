@@ -1,31 +1,32 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Orders</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Order date</th>
-      <th>Amount</th>
-      <th>Delivery address</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Detail</th>
 
-  <tbody>
+      </tr>
+    </thead>
+    <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= order.order_date %></td>
+        <td><%= order.order_date.strftime("%m/%d/%Y") %></td>
         <td><%= order.amount %></td>
-        <td><%= order.delivery_address %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Order Detail', order %></td>
+        <td><%= link_to 'Order Cancle', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+      
+    </tbody>
+  </table>
+</div>
 
-<br>
 
-<%= link_to 'New Order', new_order_path %>
+<style> 
+        .ml-lefts{
+          margin-left: 75%;
+        }
+</style>

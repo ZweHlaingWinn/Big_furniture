@@ -5,6 +5,8 @@
   <%= @order.order_date %>
 </p>
 
+    <%= @order.order_products.map{|it| it.product.name}%>
+
 <p>
   <strong>Amount:</strong>
   <%= @order.amount %>
@@ -12,8 +14,7 @@
 
 <p>
   <strong>Delivery address:</strong>
-  <%= @order.delivery_address %>
+  <%= current_user.address %>
 </p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

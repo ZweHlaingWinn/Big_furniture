@@ -14,5 +14,13 @@ ActiveAdmin.register OwnOrder do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+  permit_params :own_design_product_id, :status, :own_design_product_date
+
+  config.batch_actions = false
+  config.filters = false
+
   
+  
+
+ 
 end

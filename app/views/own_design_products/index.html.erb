@@ -1,39 +1,46 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Own Design Products</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Size</th>
-      <th>Color</th>
-      <th>Price</th>
-      <th>Description</th>
-      <th>Targetdate</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="col-md-12">
+<%= link_to 'New Own Design Product', new_own_design_product_path , class: "btn btn-primary text-white mr-auto ml-lefts"%>
+</div>
 
-  <tbody>
-    <% @own_design_products.each do |own_design_product| %>
+<div class="container">
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= own_design_product.name %></td>
-        <td><%= own_design_product.size %></td>
-        <td><%= own_design_product.color %></td>
-        <td><%= own_design_product.price %></td>
-        <td><%= own_design_product.description %></td>
-        <td><%= own_design_product.targetdate %></td>
-        <td><%= own_design_product.user %></td>
-        <td><%= link_to 'Show', own_design_product %></td>
-        <td><%= link_to 'Edit', edit_own_design_product_path(own_design_product) %></td>
-        <td><%= link_to 'Destroy', own_design_product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th scope="col">Name</th>
+        <th scope="col">Size</th>
+        <th scope="col">Color</th>
+        <th scope="col">Price</th>
+        <th scope="col">Check Detail</th>
+
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <tr>
+      <% @own_design_products.each do |own_design_product| %>
 
-<br>
+        <tr>
+          <td><%= own_design_product.name %></td>
+          <td><%= own_design_product.size %></td>
+          <td><span>
+          <i class="fas fa-circle" style="color:  <%= own_design_product.color %>"></i></span>
+          </td>
+          <td><%= own_design_product.price %></td>
+          
+          <td><%= link_to 'Detail', own_design_product %></td>
+          <td><%= link_to 'Edit', edit_own_design_product_path(own_design_product) %></td>
+          <td><%= link_to 'Destroy', own_design_product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <%end%>
+      
+    </tbody>
+  </table>
+</div>
 
-<%= link_to 'New Own Design Product', new_own_design_product_path %>
+
+<style> 
+        .ml-lefts{
+          margin-left: 75%;
+        }
+</style>

@@ -1,56 +1,111 @@
-<%= form_with(model: own_design_product, local: true) do |form| %>
-  <% if own_design_product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(own_design_product.errors.count, "error") %> prohibited this own_design_product from being saved:</h2>
 
-      <ul>
-      <% own_design_product.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+
+<section class="order-form my-4 mx-4">
+<div class="container pt-4">
+
+  <div class="row">
+    <div class="col-12">
+      <h1>You can order your own design product</h1>
+      <hr class="mt-1">
     </div>
-  <% end %>
+    <div class="col-12">
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form_with(model: own_design_product, local: true) do |form| %>
+
+      <div class="row  mt-3 mx-4">
+        <div class="col-mb-12">
+          <label class="order-form-label">Name</label>
+        </div>
+        <div class="col-md-12">
+        <%= form.text_field :name, class: "order-form-input" %>
+        </div>
+      </div>
+
+      <div class="row mt-3 mx-4">
+        <div class="col-12">
+          <label class="order-form-label">Size</label>
+        </div>
+        <div class="col-12">
+        <%= form.text_field :size, class: "order-form-input" %>
+        </div>
+      </div>
+
+      <div class="row mt-3 mx-4">
+        <div class="col-12">
+          <label class="order-form-label">Price</label>
+        </div>
+        <div class="col-12">
+        <%= form.number_field :price, class: "order-form-input" %>
+        </div>
+      </div>
+
+      <div class="row mt-3 mx-4">
+        <div class="col-12">
+          <label class="order-form-label">color</label>
+        </div>
+        <div class="col-12">
+        <%= form.color_field :color, class: "order-form-input" %>
+        </div>
+      </div>
+
+      <div class="row mt-3 mx-4">
+        <div class="col-12">
+          <label class="order-form-label">Image Upload</label>
+        </div>
+        <div class="col-12">
+        <%= form.file_field :images,multiple: true, class: "order-form-input" %>
+        </div>
+      </div>
+
+      <div class="row mt-3 mx-4">
+        <div class="col-12">
+          <label class="order-form-label" for="date-picker-example">Target Date</label>
+        </div>
+        <div class="col-12">
+            <%= form.date_select :targetdate, class: "datepicker", id: "date-picker-example" %>
+        </div>
+      </div>
+
+
+      <div class="row mt-3 mx-4">
+        <div class="col-12">
+          <label class="order-form-label" for="date-picker-example">Description</label>
+        </div>
+        <div class="col-12">
+            <%= form.text_area :description, class: "order-form-input" %>
+        </div>
+      </div>
+     
+
+      
+
+      <div class="row mt-3 mx-4">
+        <div class="col-12">
+        <%= form.submit class: "btn btn-dark d-block mx-auto btn-submit" %>
+        <%= link_to 'Back', own_design_products_path, class: "ml-4" %>
+        </div>
+    
+      </div>
+
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :size %>
-    <%= form.text_field :size %>
-  </div>
-
-  <div class="field">
-    <%= form.label :color %>
-    <%= form.color_field :color %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :targetdate %>
-    <%= form.datetime_select :targetdate %>
-  </div>
-
-  <div class="field">
-        <%= form.label :own_design_product_images %>
-        <%= form.file_field :own_design_product_images, multiple: true %>
-  </div>
-  
-
-    <%= form.hidden_field :user_id , :value => "#{current_user.id}"%>
+  <%end%>
+</div>
+</section>
 
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<style>
+
+.order-form .container {
+  color: #4c4c4c;
+  padding: 20px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .1);
+}
+</style>
+
+
+
+<script>
+
+$('.datepicker').pickadate();
+</script>

@@ -10,8 +10,6 @@ class CartController < ApplicationController
       @cart.recalculate_price!
       flash[:notice] = "Item added to cart!"
       redirect_to '/cart'   
-    
-    
   end
 
   def remove
@@ -19,6 +17,11 @@ class CartController < ApplicationController
       product.destroy
       @cart.recalculate_price!
       redirect_to '/cart'
+  end
+
+
+  def checkout_page
+      
   end
 
   def checkout

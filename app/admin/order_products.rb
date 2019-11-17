@@ -25,5 +25,8 @@ ActiveAdmin.register OrderProduct do
   #   end
   # end
   config.filters = false
+  menu false
+
+  
 end
 
